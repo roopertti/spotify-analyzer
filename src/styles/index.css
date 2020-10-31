@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'OpenSans';
+  src:  url('../fonts/OpenSans/OpenSans-Bold.ttf') format('ttf'),
+        url('../fonts/OpenSans/OpenSans-ExtraBold.ttf') format('ttf'),
+        url('../fonts/OpenSans/OpenSans-Light.ttf') format('ttf'),
+        url('../fonts/OpenSans/OpenSans-Regular.ttf') format('ttf'),
+        url('../fonts/OpenSans/OpenSans-SemiBold.ttf') format('ttf');
+}
+
+* {
+  font-family: 'OpenSans', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+h5 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
