@@ -6,7 +6,6 @@ const ButtonBase = styled.button`
   text-transform: uppercase;
   font-size: 0.9rem;
   font-weight: 500;
-  line-height: 19px;
   color: white;
   border: none;
   border-radius: 50px;
@@ -22,6 +21,11 @@ const ButtonBase = styled.button`
   &:active {
     background: linear-gradient(90.2deg, #2F29BF 0%, rgba(255, 255, 255, 0) 100%), #B118C8;
     box-shadow: none;
+  }
+
+  @media(min-width: 960px) {
+    font-size: 1rem;
+    padding: 1.4rem 5rem;
   }
 `;
 
