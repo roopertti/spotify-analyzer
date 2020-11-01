@@ -7,11 +7,22 @@
         url('../fonts/OpenSans/OpenSans-SemiBold.ttf') format('ttf');
 }
 
+@font-face {
+  font-family: 'Itim';
+  src: url('../fonts//Itim/Itim-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/Raleway/Raleway-ExtraBold.ttf') format('ttf');
+}
+
 * {
   font-family: 'OpenSans', sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
+  font-family: 'Raleway';
   font-weight: 500;
 }
 
