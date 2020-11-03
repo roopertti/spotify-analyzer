@@ -43,7 +43,7 @@ const Icon = styled(FontAwesomeIcon)`
 export default function LinkButton({ children, href, icon = null }) {
   return (
     <ButtonBase href={href}>
-      <Icon icon={icon} />
+      {icon && <Icon icon={icon} />}
       <span>{children}</span>
     </ButtonBase>
   );
