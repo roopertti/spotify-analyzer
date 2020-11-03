@@ -12,9 +12,11 @@
     "test-watch": "jest --watch-all",
     "coverage": "jest --collect-coverage",
     "test-ci": "jest --ci",
-    "snapshot": "jest --update-snapshot"
+    "snapshot": "jest --update-snapshot",
+    "format": "prettier --write \"**/*.+(js|jsx|json|css)\""
   },
   "pre-commit": [
+    "prettier-fix",
     "lint-fix",
     "test"
   ],
@@ -31,6 +33,7 @@
     "css-loader": "^5.0.0",
     "eslint": "^7.12.1",
     "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
@@ -39,8 +42,10 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
     "jest": "^26.6.1",
+    "jest-styled-components": "^7.0.3",
     "mini-css-extract-plugin": "^1.2.1",
     "pre-commit": "^1.2.2",
+    "prettier": "^2.1.2",
     "react-test-renderer": "^17.0.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.3.1",

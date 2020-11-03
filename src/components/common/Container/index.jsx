@@ -6,21 +6,17 @@ const StyledContainer = styled.div`
   width: 100%;
   margin: auto;
 
-  @media(min-width: 600px) {
+  @media (min-width: 600px) {
     width: 600px;
   }
 
-  @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     width: 960px;
   }
 `;
 
 export default function Container({ children }) {
-  return (
-    <StyledContainer>
-      {children}
-    </StyledContainer>
-  );
+  return <StyledContainer>{children}</StyledContainer>;
 }
 
 Container.propTypes = {

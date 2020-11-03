@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'OpenSans';
-  src:  url('../fonts/OpenSans/OpenSans-Bold.ttf') format('ttf'),
-        url('../fonts/OpenSans/OpenSans-ExtraBold.ttf') format('ttf'),
-        url('../fonts/OpenSans/OpenSans-Light.ttf') format('ttf'),
-        url('../fonts/OpenSans/OpenSans-Regular.ttf') format('ttf'),
-        url('../fonts/OpenSans/OpenSans-SemiBold.ttf') format('ttf');
+  src: url('../fonts/OpenSans/OpenSans-Bold.ttf') format('ttf'),
+    url('../fonts/OpenSans/OpenSans-ExtraBold.ttf') format('ttf'),
+    url('../fonts/OpenSans/OpenSans-Light.ttf') format('ttf'),
+    url('../fonts/OpenSans/OpenSans-Regular.ttf') format('ttf'),
+    url('../fonts/OpenSans/OpenSans-SemiBold.ttf') format('ttf');
 }
 
 @font-face {
@@ -16,9 +16,13 @@
   font-family: 'OpenSans', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Raleway';
-  font-weight: 500;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
 }
 
 h1 {
