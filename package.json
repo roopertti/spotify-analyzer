@@ -16,7 +16,7 @@
     "format": "prettier --write \"**/*.+(js|jsx|json|css)\""
   },
   "pre-commit": [
-    "prettier-fix",
+    "format",
     "lint-fix",
     "test"
   ],
