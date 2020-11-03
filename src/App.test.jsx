@@ -3,7 +3,9 @@ import renderer from 'react-test-renderer';
 
 import App from './App';
 
-test('Render App component', () => {
-  const tree = renderer.create(<App />).toJSON();
-  expect(tree).toMatchSnapshot();
+describe('App tests', () => {
+  it('Render whole App', () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

@@ -34,6 +34,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 3rem;
+  box-shadow: 0px 10px 30px rgba(47, 41, 191, 0.3), 0px -10px 30px rgba(177, 24, 200, 0.3);
 
   @media (max-width: 960px) {
     padding: 2rem;

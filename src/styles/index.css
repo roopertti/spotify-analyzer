@@ -12,6 +12,17 @@
   src: url('../fonts/Raleway/Raleway-ExtraBold.ttf') format('ttf');
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 * {
   font-family: 'OpenSans', sans-serif;
 }
@@ -20,7 +31,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
 }
@@ -48,4 +60,9 @@ h4 {
 h5 {
   font-size: 1.5rem;
   line-height: 1.2;
+}
+
+h6 {
+  font-size: 1.3rem;
+  line-height: 1;
 }
