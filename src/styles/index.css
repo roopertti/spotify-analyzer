@@ -1,18 +1,40 @@
 @font-face {
   font-family: 'OpenSans';
-  src:  url('../fonts/OpenSans/OpenSans-Bold.ttf') format('ttf'),
-        url('../fonts/OpenSans/OpenSans-ExtraBold.ttf') format('ttf'),
-        url('../fonts/OpenSans/OpenSans-Light.ttf') format('ttf'),
-        url('../fonts/OpenSans/OpenSans-Regular.ttf') format('ttf'),
-        url('../fonts/OpenSans/OpenSans-SemiBold.ttf') format('ttf');
+  src: url('../fonts/OpenSans/OpenSans-Bold.ttf') format('ttf'),
+    url('../fonts/OpenSans/OpenSans-ExtraBold.ttf') format('ttf'),
+    url('../fonts/OpenSans/OpenSans-Light.ttf') format('ttf'),
+    url('../fonts/OpenSans/OpenSans-Regular.ttf') format('ttf'),
+    url('../fonts/OpenSans/OpenSans-SemiBold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/Raleway/Raleway-ExtraBold.ttf') format('ttf');
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 * {
   font-family: 'OpenSans', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
-  font-weight: 500;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
 }
 
 h1 {
@@ -38,4 +60,9 @@ h4 {
 h5 {
   font-size: 1.5rem;
   line-height: 1.2;
+}
+
+h6 {
+  font-size: 1.3rem;
+  line-height: 1;
 }

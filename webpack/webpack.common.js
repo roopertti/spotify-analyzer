@@ -12,12 +12,12 @@ const plugins = [
   }),
 ];
 
-if(!devMode) {
+if (!devMode) {
   plugins.push(
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
-      ignoreOrder: false
+      ignoreOrder: false,
     }),
   );
 }
@@ -32,22 +32,15 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
-        ],
+        use: [devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader',
-        ],
+        use: ['file-loader'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          'file-loader',
-        ],
+        use: ['file-loader'],
       },
       {
         test: /\.(js|jsx)$/,
@@ -74,6 +67,6 @@ module.exports = {
   },
   plugins,
   resolve: {
-    extensions: ['.js', '.jsx'] 
-  }
+    extensions: ['.js', '.jsx'],
+  },
 };
