@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 const ButtonBase = styled.button`
   text-transform: uppercase;
+  outline: none;
   font-size: 0.9rem;
   font-weight: 500;
   color: white;
@@ -11,17 +12,18 @@ const ButtonBase = styled.button`
   border-radius: 50px;
   background: linear-gradient(90.2deg, #2f29bf -21.41%, rgba(255, 255, 255, 0) 134.41%), #b118c8;
   padding: 1.2rem 4.3rem;
-  box-shadow: 0px 10px 30px rgba(47, 41, 191, 0.3), 0px -10px 30px rgba(177, 24, 200, 0.3);
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
 
   &:hover,
   &:focus {
-    box-shadow: 0px 3px 7px rgba(47, 41, 191, 0.3), 0px -3px 7px rgba(177, 24, 200, 0.3);
+    box-shadow: 0px 10px 30px rgba(47, 41, 191, 0.3), 0px -10px 30px rgba(177, 24, 200, 0.3);
+    transform: translateY(-5px);
   }
 
   &:active {
-    background: linear-gradient(90.2deg, #2f29bf 0%, rgba(255, 255, 255, 0) 100%), #b118c8;
-    box-shadow: none;
+    background: linear-gradient(90.2deg, #2f29bf -40%, rgba(255, 255, 255, 0) 90%), #b118c8;
+    transform: translateY(0);
+    box-shadow: 0px 5px 10px rgba(47, 41, 191, 0.3), 0px -5px 10px rgba(177, 24, 200, 0.3);
   }
 
   @media (min-width: 960px) {
