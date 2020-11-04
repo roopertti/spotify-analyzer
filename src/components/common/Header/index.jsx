@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
 import LinkButton from '../LinkButton';
 
@@ -47,6 +48,22 @@ const StyledHeader = styled.header`
   }
 `;
 
+const menuOpenAnimation = keyframes`
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+`;
+
+const slideInFromLeft = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1
+    transform: translateX(0);
+  }
+`;
+
 const Backdrop = styled.div`
   position: fixed;
   z-index: 2;
@@ -56,14 +73,30 @@ const Backdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  backdrop-filter: blur(12px);
+
+  &:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.3);
+    animation: 0.3s ease 0s 1 ${menuOpenAnimation};
+    transition: opacity 0.5;
+    opacity: ${(props) => '1' && props.opacity};
+  }
 `;
 
 const MobileNav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 6rem 3rem 0 0;
+  padding: 7rem 3rem 0 0;
+  animation: 0.5s ease 0s 1 ${slideInFromLeft};
+  transition: opacity 0.15s;
+  opacity: ${(props) => '1' && props.opacity};
 
   @media (max-width: 960px) {
     padding: 6rem 2rem 0 0;
@@ -79,6 +112,7 @@ const MobileNav = styled.nav`
 
   a {
     margin-bottom: 1.5rem;
+    z-index: 3;
   }
 `;
 
@@ -96,12 +130,12 @@ const MenuButton = styled.button`
   transform: ${(props) => (props.flipped ? 'rotate(180deg)' : 'none')};
   transition-duration: 0.3s;
 
-  &:hover {
-    background-color: #e5e5e5;
-  }
-
-  &:focus: {
-    box-shadow: linear-gradient(90.2deg, #2f29bf 0%, rgba(255, 255, 255, 0) 100%), #b118c8;
+  &:hover,
+  &:focus {
+    box-shadow: ${(props) =>
+      props.flipped
+        ? '0px -10px 30px rgba(177, 24, 200, 0.3), 0px 10px 30px rgba(47, 41, 191, 0.3);'
+        : '0px 10px 30px rgba(47, 41, 191, 0.3), 0px -10px 30px rgba(177, 24, 200, 0.3);'};
   }
 
   @media (max-width: 960px) {
@@ -113,30 +147,48 @@ const MenuButton = styled.button`
   }
 `;
 
+function MobileMenu({ onClose }) {
+  const [closing, setClosing] = React.useState(false);
+  const menuRef = React.useRef(null);
+
+  const handleBackdropClick = (e) => {
+    if (menuRef.current && !menuRef.current.contains(e.target)) {
+      setClosing(true);
+      setTimeout(onClose, 500);
+    }
+  };
+
+  return (
+    <Backdrop data-testid="backdrop" onClick={handleBackdropClick} opacity={closing ? 0 : null}>
+      <MobileNav ref={menuRef} data-testid="mobile-menu" opacity={closing ? 0 : null}>
+        <LinkButton className="link" href="#">
+          Authorize
+        </LinkButton>
+        <LinkButton className="link" href="#">
+          Features
+        </LinkButton>
+        <LinkButton className="link" href="#">
+          Github
+        </LinkButton>
+      </MobileNav>
+    </Backdrop>
+  );
+}
+
+MobileMenu.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   return (
     <StyledHeader>
       <Brand>Spotify analyzer</Brand>
-      <MenuButton data-testid="menu-button" flipped={mobileMenuOpen}>
-        <FontAwesomeIcon icon={faCaretDown} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} />
+      <MenuButton data-testid="menu-button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} flipped={mobileMenuOpen}>
+        <FontAwesomeIcon icon={faCaretDown} />
       </MenuButton>
-      {mobileMenuOpen && (
-        <Backdrop>
-          <MobileNav data-testid="mobile-menu">
-            <LinkButton className="link" href="#">
-              Authorize
-            </LinkButton>
-            <LinkButton className="link" href="#">
-              Features
-            </LinkButton>
-            <LinkButton className="link" href="#">
-              Github
-            </LinkButton>
-          </MobileNav>
-        </Backdrop>
-      )}
+      {mobileMenuOpen && <MobileMenu data-testid="mobile-menu" onClose={() => setMobileMenuOpen(false)} />}
     </StyledHeader>
   );
 }
