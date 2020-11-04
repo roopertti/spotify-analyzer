@@ -13,11 +13,12 @@
     "coverage": "jest --collect-coverage",
     "test-ci": "jest --ci",
     "snapshot": "jest --update-snapshot",
-    "format": "prettier --write \"**/*.+(js|jsx|json|css)\""
+    "format": "prettier --write \"src/**/*.+(js|jsx|json|css)\"",
+    "prettier": "prettier --check \"src/**/*.+(js|jsx|json|css)\""
   },
   "pre-commit": [
-    "format",
-    "lint-fix",
+    "prettier",
+    "lint",
     "test"
   ],
   "author": "Robert Kuhlmann",

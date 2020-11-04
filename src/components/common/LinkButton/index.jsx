@@ -14,15 +14,20 @@ const ButtonBase = styled.a`
   border: 2px solid #2f29bf;
   border-radius: 50px;
   padding: 0.6rem 2rem;
+  transition-duration: 0.2s;
+  outline: none;
 
   &:hover,
   &:focus {
-    background-color: #e5e5e5;
+    box-shadow: 0px 10px 20px rgba(47, 41, 191, 0.3), 0px -10px 20px rgba(177, 24, 200, 0.3);
+    transform: translateY(-3px);
   }
 
   &:active {
     border: 2px solid #b118c8;
     color: #b118c8;
+    box-shadow: 0px 3px 7px rgba(47, 41, 191, 0.3), 0px -3px 7px rgba(177, 24, 200, 0.3);
+    transform: translateY(0);
   }
 
   @media (min-width: 960px) {
@@ -43,7 +48,7 @@ const Icon = styled(FontAwesomeIcon)`
 export default function LinkButton({ children, href, icon = null }) {
   return (
     <ButtonBase href={href}>
-      <Icon icon={icon} />
+      {icon && <Icon icon={icon} />}
       <span>{children}</span>
     </ButtonBase>
   );
